@@ -1772,6 +1772,13 @@ namespace WindowsFormsApp1
             {
                 StreamWriter inputdata = new System.IO.StreamWriter(inputfileName, false, System.Text.Encoding.GetEncoding("shift_jis"));
                 inputdata.WriteLine("5");
+                inputdata.WriteLine((int)numericUpDown1.Value);
+                inputdata.WriteLine((int)numericUpDown2.Value);
+                inputdata.WriteLine((int)numericUpDown3.Value);
+                inputdata.WriteLine((int)numericUpDown4.Value);
+                inputdata.WriteLine((int)numericUpDown5.Value);
+                inputdata.WriteLine((int)numericUpDown6.Value);
+                inputdata.WriteLine(comboBox2.SelectedIndex - 1);
                 if (comboBox1.SelectedIndex == 0)
                 {
                     inputdata.WriteLine("n");
