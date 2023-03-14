@@ -1,0 +1,11 @@
+C:\Users\knms360\source\repos\WindowsFormsApp1\WindowsFormsApp1\bin\Release\IV-PID-GUI.exe.config
+C:\Users\knms360\source\repos\WindowsFormsApp1\WindowsFormsApp1\bin\Release\IV-PID-GUI.exe
+C:\Users\knms360\source\repos\WindowsFormsApp1\WindowsFormsApp1\bin\Release\IV-PID-GUI.pdb
+C:\Users\knms360\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Release\IV-PID-GUI.csproj.AssemblyReference.cache
+C:\Users\knms360\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Release\IV-PID-GUI.csproj.SuggestedBindingRedirects.cache
+C:\Users\knms360\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Release\WindowsFormsApp1.Main.resources
+C:\Users\knms360\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Release\IVPIDGUI.Properties.Resources.resources
+C:\Users\knms360\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Release\IV-PID-GUI.csproj.GenerateResource.cache
+C:\Users\knms360\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Release\IV-PID-GUI.csproj.CoreCompileInputs.cache
+C:\Users\knms360\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Release\IV-PID-GUI.exe
+C:\Users\knms360\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Release\IV-PID-GUI.pdb
