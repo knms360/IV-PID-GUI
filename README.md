@@ -15,12 +15,12 @@ This is not recommended for Regal Pokémon. Legal in PKHeX, but may not really b
 5. Paste to PID of PKHeX
 6. Change to Nature and Ability at the top of the table below
 ### 3rd gen how to fix "Encounter Type PID mismatch" when pressing shiny buttons.
-1. Press "Siny PID + ID --> SID"
-2. Enter PKHeX PID to "Shiny PID"
-3. Enter the PKHeX specie trainer ID in "Trainer ID"
-4. Press "Generate"
-5. Copy the output SID.
-6. Paste to SID of the PKHeX species SID.
+1. 
+2. 
+3. 
+4. 
+5. 
+6. 
 ### What is this?
 This is a GUI program of IV-PID.
 
