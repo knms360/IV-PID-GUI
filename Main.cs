@@ -2703,7 +2703,7 @@ namespace WindowsFormsApp1
 
             IVPID = "個体値→性格値";
             minIVHPPID = "最小個体値+めざパ→性格値";
-            minIVIDSIDPID = "最小個体値+めざパ+裏ID→色違い性格値";
+            minIVIDSIDPID = "最小個体値+表ID+裏ID→色違い性格値";
             minIVHPIDSIDshinyPID = "最小個体値+めざパ+表ID+裏ID→色違い性格値";
             IVIDSIDshinyPID = "個体値+表ID+裏ID→連続捕獲色違い性格値";
             PIDIV = "性格値→個体値";
