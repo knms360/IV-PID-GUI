@@ -12,6 +12,9 @@ using System.Diagnostics;
 using System.Text.RegularExpressions;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using System.Net.Http;
+using System.Security.Policy;
 
 namespace WindowsFormsApp1
 {
@@ -39,6 +42,7 @@ namespace WindowsFormsApp1
 
         //other
         int openfileFilterIndex = 1;
+        int loading = 1;
 
         //language
         int language = 0;
@@ -69,6 +73,8 @@ namespace WindowsFormsApp1
         string IVIDSIDshinyPID = "IV + ID + SID --> chained shiny PID";
         string PIDIV = "PID --> IV";
         string shinyPIDIDSID = "Shiny PID + ID --> SID";
+        string PIDIDSIDshinySID = "PID + ID + SID --> Shiny SID";
+
         string option = "Option";
 
         string number = "No.";
@@ -152,6 +158,7 @@ namespace WindowsFormsApp1
 
         string shinypid = "Shiny PID";
         string sid = "SID";
+        string shinysid = "Shiny SID";
 
         string trainerid = "Trainer ID";
         string secretid = "Secret ID";
@@ -299,12 +306,15 @@ namespace WindowsFormsApp1
             label10.Text = "";
             label15.Text = pid;
             label16.Text = shinypid;
+            label29.Text = pid;
             gene2.Text = generate;
             label17.Text = sid;
+            label30.Text = shinysid;
             label13.Text = trainerid;
             label14.Text = secretid;
             checkBox5.Text = hexinput;
             checkBox6.Text = hexinput;
+            checkBox11.Text = hexinput;
             button4.Text = Export;
             checkBox7.Text = DisableDone;
             checkBox8.Text = DisableLoad;
@@ -346,7 +356,10 @@ namespace WindowsFormsApp1
                     textBox3.Text = load.ReadLine();
                     textBox4.Text = load.ReadLine();
                     textBox5.Text = load.ReadLine();
+                    textBox12.Text = load.ReadLine();
+                    checkBox5.Checked = Convert.ToBoolean(load.ReadLine());
                     checkBox6.Checked = Convert.ToBoolean(load.ReadLine());
+                    checkBox11.Checked = Convert.ToBoolean(load.ReadLine());
                     checkBox2.Checked = Convert.ToBoolean(load.ReadLine());
                     checkBox3.Checked = Convert.ToBoolean(load.ReadLine());
                     checkBox1.Checked = Convert.ToBoolean(load.ReadLine());
@@ -403,6 +416,7 @@ namespace WindowsFormsApp1
                 radioButton3.Checked = true;
             }
             refreshform();
+            loading = 0;
         }
 
         private void autosaveconfig()
@@ -432,7 +446,10 @@ namespace WindowsFormsApp1
             output.WriteLine(textBox3.Text);
             output.WriteLine(textBox4.Text);
             output.WriteLine(textBox5.Text);
+            output.WriteLine(textBox12.Text);
+            output.WriteLine(checkBox5.Checked);
             output.WriteLine(checkBox6.Checked);
+            output.WriteLine(checkBox11.Checked);
             output.WriteLine(checkBox2.Checked);
             output.WriteLine(checkBox3.Checked);
             output.WriteLine(checkBox1.Checked);
@@ -559,6 +576,7 @@ namespace WindowsFormsApp1
             tabPage5.Text = IVIDSIDshinyPID;
             tabPage6.Text = PIDIV;
             tabPage7.Text = shinyPIDIDSID;
+            tabPage9.Text = PIDIDSIDshinySID;
             tabPage8.Text = option;
             button1.Text = random;
             button2.Text = setalliv;
@@ -570,12 +588,15 @@ namespace WindowsFormsApp1
             label10.Text = "";
             label15.Text = pid;
             label16.Text = shinypid;
+            label29.Text = pid;
             gene2.Text = generate;
             label17.Text = sid;
+            label30.Text = shinysid;
             label13.Text = trainerid;
             label14.Text = secretid;
             checkBox5.Text = hexinput;
             checkBox6.Text = hexinput;
+            checkBox11.Text = hexinput;
             button4.Text = Export;
             checkBox7.Text = DisableDone;
             checkBox8.Text = DisableLoad;
@@ -726,6 +747,24 @@ namespace WindowsFormsApp1
                 panel1.Visible = false;
                 panel2.Visible = false;
                 panel3.Visible = false;
+                panel4.Visible = true;
+                comboBox3.Enabled = false;
+                comboBox4.Enabled = false;
+                comboBox5.Enabled = false;
+                comboBox6.Enabled = false;
+                comboBox7.Enabled = false;
+                comboBox8.Enabled = false;
+                button3.Enabled = false;
+                comboBox10.Enabled = false;
+                textBox3.Enabled = true;
+                checkBox2.Enabled = false;
+                checkBox3.Enabled = false;
+            }
+            else if (tabControl1.SelectedIndex == 8)
+            {
+                panel1.Visible = false;
+                panel2.Visible = false;
+                panel3.Visible = false;
                 panel4.Visible = false;
                 comboBox3.Enabled = false;
                 comboBox4.Enabled = false;
@@ -791,6 +830,17 @@ namespace WindowsFormsApp1
                 else
                 {
                     textBox5.Text = "0";
+                }
+            }
+            if (textBox12.Text == "")
+            {
+                if (checkBox11.Checked == true)
+                {
+                    textBox12.Text = "00000000";
+                }
+                else
+                {
+                    textBox12.Text = "0";
                 }
             }
             label10.Text = "";
@@ -2228,6 +2278,54 @@ namespace WindowsFormsApp1
                     Error = 1;
                 }
             }
+            else if (tabControl1.SelectedIndex == 7)
+            {
+                string PID2 = "";
+                string HID = "";
+                string LID = "";
+                string NSID = "";
+                if (checkBox11.Checked == true)
+                {
+                    PID2 = new string('0', 8 - textBox12.Text.Length) + textBox12.Text;
+                    MessageBox.Show(PID2);
+                    HID = PID2.Substring(0, 4);
+                    LID = PID2.Substring(4, 4);
+                }
+                else
+                {
+                    PID2 = new string('0', 8 - Convert.ToString(Convert.ToInt64(textBox12.Text), 16).Length) + Convert.ToString(Convert.ToInt64(textBox12.Text), 16);
+                    MessageBox.Show(PID2);
+                    HID = PID2.Substring(0, 4);
+                    LID = PID2.Substring(4, 4);
+                }
+                string TID = textBox2.Text;
+                string SID = textBox3.Text;
+                HID = Convert.ToString(Convert.ToInt32(HID, 16), 2);
+                LID = Convert.ToString(Convert.ToInt32(LID, 16), 2);
+                TID = Convert.ToString(Convert.ToInt32(TID), 2);
+                SID = Convert.ToString(Convert.ToInt32(SID), 2);
+                HID = new string('0', 16 - HID.Length) + HID;
+                LID = new string('0', 16 - LID.Length) + LID;
+                TID = new string('0', 16 - TID.Length) + TID;
+                SID = new string('0', 16 - SID.Length) + SID;
+                MessageBox.Show(HID + "\n" + LID + "\n" + TID + "\n" + SID);
+                for (int i = 0; i < 13; i++)
+                {
+                    MessageBox.Show(HID.Substring(i, 1) + "\n" + LID.Substring(i, 1) + "\n" + TID.Substring(i, 1) + "\n" + SID.Substring(i, 1));
+                    int plus = Convert.ToInt32(HID.Substring(i, 1)) + Convert.ToInt32(LID.Substring(i, 1)) + Convert.ToInt32(TID.Substring(i, 1));
+                    if ( plus == 2 || plus == 0 )
+                    {
+                        NSID += "0";
+                    }
+                    else if (plus == 3 || plus == 1)
+                    {
+                        NSID += "1";
+                    }
+                }
+                NSID += SID.Substring(13, 3);
+                MessageBox.Show(HID + "\n" + LID + "\n" + TID + "\n" + NSID);
+                textBox13.Text = new string('0', 5 - Convert.ToString(Convert.ToInt32(NSID, 2)).Length) + Convert.ToString(Convert.ToInt32(NSID, 2)).ToLower();
+            }
             if (checkBox9.Checked == true)
             {
                 for (int i = 0; i < dataGridView1.Rows.Count; i++)
@@ -2375,23 +2473,50 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void checkBox5_CheckedChanged(object sender, EventArgs e)
+        private void textBox5_TextChanged(object sender, EventArgs e)
         {
-            if (checkBox5.Checked == true)
+            if (checkBox6.Checked == true)
             {
-                if (textBox4.Text != "")
-                {
-                    textBox4.Text = Convert.ToString(Convert.ToInt64(textBox4.Text), 16);
-                }
-                textBox4.MaxLength = 8;
+                textBox5.Text = Regex.Replace(textBox5.Text, @"[^0-9^a-f^A-F]", "");
             }
             else
             {
-                if (textBox4.Text != "")
+                textBox5.Text = Regex.Replace(textBox5.Text, @"[^0-9]", "");
+            }
+        }
+
+        private void textBox12_TextChanged(object sender, EventArgs e)
+        {
+            if (checkBox11.Checked == true)
+            {
+                textBox12.Text = Regex.Replace(textBox12.Text, @"[^0-9^a-f^A-F]", "");
+            }
+            else
+            {
+                textBox12.Text = Regex.Replace(textBox12.Text, @"[^0-9]", "");
+            }
+        }
+
+        private void checkBox5_CheckedChanged(object sender, EventArgs e)
+        {
+            if (loading == 0)
+            {
+                if (checkBox5.Checked == true)
                 {
-                    textBox4.Text = Convert.ToString(Convert.ToInt64(textBox4.Text, 16));
+                    if (textBox4.Text != "")
+                    {
+                        textBox4.Text = Convert.ToString(Convert.ToInt64(textBox4.Text), 16);
+                    }
+                    textBox4.MaxLength = 8;
                 }
-                textBox4.MaxLength = 10;
+                else
+                {
+                    if (textBox4.Text != "")
+                    {
+                        textBox4.Text = Convert.ToString(Convert.ToInt64(textBox4.Text, 16));
+                    }
+                    textBox4.MaxLength = 10;
+                }
             }
         }
 
@@ -2409,24 +2534,49 @@ namespace WindowsFormsApp1
 
         private void checkBox6_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox6.Checked == true)
+            if (loading == 0)
             {
-                if (textBox5.Text != "")
+                if (checkBox6.Checked == true)
                 {
-                    textBox5.Text = Convert.ToString(Convert.ToInt64(textBox4.Text), 16);
+                    if (textBox5.Text != "")
+                    {
+                        textBox5.Text = Convert.ToString(Convert.ToInt64(textBox5.Text), 16);
+                    }
+                    textBox5.MaxLength = 8;
                 }
-                textBox5.MaxLength = 8;
-            }
-            else
-            {
-                if (textBox5.Text != "")
+                else
                 {
-                    textBox5.Text = Convert.ToString(Convert.ToInt64(textBox4.Text, 16));
+                    if (textBox5.Text != "")
+                    {
+                        textBox5.Text = Convert.ToString(Convert.ToInt64(textBox5.Text, 16));
+                    }
+                    textBox5.MaxLength = 10;
                 }
-                textBox5.MaxLength = 10;
             }
         }
 
+        private void checkBox11_CheckedChanged(object sender, EventArgs e)
+        {
+            if (loading == 0)
+            {
+                if (checkBox11.Checked == true)
+                {
+                    if (textBox12.Text != "")
+                    {
+                        textBox12.Text = Convert.ToString(Convert.ToInt64(textBox12.Text), 16);
+                    }
+                    textBox12.MaxLength = 8;
+                }
+                else
+                {
+                    if (textBox12.Text != "")
+                    {
+                        textBox12.Text = Convert.ToString(Convert.ToInt64(textBox12.Text, 16));
+                    }
+                    textBox12.MaxLength = 10;
+                }
+            }
+        }
         private void radioButtonlanguage_CheckedChanged(object sender, EventArgs e)
         {
             autosaveconfig();
@@ -2470,6 +2620,7 @@ namespace WindowsFormsApp1
             IVIDSIDshinyPID = "IV + ID + SID --> chained shiny PID";
             PIDIV = "PID --> IV";
             shinyPIDIDSID = "Shiny PID + ID --> SID";
+            PIDIDSIDshinySID = "PID + ID + SID --> Shiny SID";
             option = "Option";
 
             number = "No.";
@@ -2553,6 +2704,7 @@ namespace WindowsFormsApp1
 
             shinypid = "Shiny PID";
             sid = "SID";
+            shinysid = "Shiny SID";
 
             trainerid = "Trainer ID";
             secretid = "Secret ID";
@@ -2589,6 +2741,7 @@ namespace WindowsFormsApp1
             IVIDSIDshinyPID = "IV + ID + SID --> PID shiny de PokéRadar";
             PIDIV = "PID --> IV";
             shinyPIDIDSID = "PID shiny + ID --> SID";
+            PIDIDSIDshinySID = "PID + ID + SID --> shiny SID";
             option = "opção";
 
             number = "Nº";
@@ -2672,6 +2825,7 @@ namespace WindowsFormsApp1
 
             shinypid = "Shiny PID";
             sid = "SID";
+            shinysid = "Shiny SID";
 
             trainerid = "ID de entrenador";
             secretid = "ID secreto de entrenador";
@@ -2708,6 +2862,7 @@ namespace WindowsFormsApp1
             IVIDSIDshinyPID = "個体値+表ID+裏ID→連続捕獲色違い性格値";
             PIDIV = "性格値→個体値";
             shinyPIDIDSID = "色違い性格値+表ID→裏ID推測";
+            PIDIDSIDshinySID = "性格値+表ID+裏ID→色違い裏ID";
             option = "設定";
 
             number = "番号";
@@ -2789,8 +2944,9 @@ namespace WindowsFormsApp1
             hptype = "めざめるパワータイプ";
             hppower = "最小めざめるパワー威力";
 
-            shinypid = "色違いPID";
+            shinypid = "色違い性格値";
             sid = "裏ID";
+            shinysid = "色違い裏ID";
 
             trainerid = "トレーナーID";
             secretid = "隠しトレーナーID";

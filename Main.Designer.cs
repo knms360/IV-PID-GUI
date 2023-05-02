@@ -76,6 +76,13 @@
             this.checkBox6 = new System.Windows.Forms.CheckBox();
             this.label16 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
+            this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.label30 = new System.Windows.Forms.Label();
+            this.button6 = new System.Windows.Forms.Button();
+            this.checkBox11 = new System.Windows.Forms.CheckBox();
+            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.label29 = new System.Windows.Forms.Label();
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.checkBox10 = new System.Windows.Forms.CheckBox();
             this.label22 = new System.Windows.Forms.Label();
@@ -136,6 +143,7 @@
             this.tabControl1.SuspendLayout();
             this.tabPage6.SuspendLayout();
             this.tabPage7.SuspendLayout();
+            this.tabPage9.SuspendLayout();
             this.tabPage8.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -536,6 +544,7 @@
             this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Controls.Add(this.tabPage6);
             this.tabControl1.Controls.Add(this.tabPage7);
+            this.tabControl1.Controls.Add(this.tabPage9);
             this.tabControl1.Controls.Add(this.tabPage8);
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Multiline = true;
@@ -659,7 +668,7 @@
             // 
             this.textBox6.BackColor = System.Drawing.Color.White;
             this.textBox6.Enabled = false;
-            this.textBox6.Location = new System.Drawing.Point(627, 237);
+            this.textBox6.Location = new System.Drawing.Point(620, 237);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(75, 19);
             this.textBox6.TabIndex = 28;
@@ -667,7 +676,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(625, 222);
+            this.label17.Location = new System.Drawing.Point(618, 222);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(23, 12);
             this.label17.TabIndex = 27;
@@ -675,7 +684,7 @@
             // 
             // gene2
             // 
-            this.gene2.Location = new System.Drawing.Point(627, 196);
+            this.gene2.Location = new System.Drawing.Point(620, 196);
             this.gene2.Name = "gene2";
             this.gene2.Size = new System.Drawing.Size(75, 23);
             this.gene2.TabIndex = 26;
@@ -712,6 +721,82 @@
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(100, 19);
             this.textBox5.TabIndex = 4;
+            this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
+            // 
+            // tabPage9
+            // 
+            this.tabPage9.Controls.Add(this.textBox13);
+            this.tabPage9.Controls.Add(this.label30);
+            this.tabPage9.Controls.Add(this.button6);
+            this.tabPage9.Controls.Add(this.checkBox11);
+            this.tabPage9.Controls.Add(this.textBox12);
+            this.tabPage9.Controls.Add(this.label29);
+            this.tabPage9.Location = new System.Drawing.Point(4, 22);
+            this.tabPage9.Name = "tabPage9";
+            this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage9.Size = new System.Drawing.Size(768, 274);
+            this.tabPage9.TabIndex = 8;
+            this.tabPage9.Text = "tabPage9";
+            this.tabPage9.UseVisualStyleBackColor = true;
+            // 
+            // textBox13
+            // 
+            this.textBox13.BackColor = System.Drawing.Color.White;
+            this.textBox13.Enabled = false;
+            this.textBox13.Location = new System.Drawing.Point(620, 237);
+            this.textBox13.Name = "textBox13";
+            this.textBox13.Size = new System.Drawing.Size(75, 19);
+            this.textBox13.TabIndex = 31;
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(618, 222);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(55, 12);
+            this.label30.TabIndex = 30;
+            this.label30.Text = "Shiny SID";
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(620, 196);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(75, 23);
+            this.button6.TabIndex = 29;
+            this.button6.Text = "生成";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.gene_Click);
+            // 
+            // checkBox11
+            // 
+            this.checkBox11.AutoSize = true;
+            this.checkBox11.Checked = true;
+            this.checkBox11.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox11.Location = new System.Drawing.Point(8, 74);
+            this.checkBox11.Name = "checkBox11";
+            this.checkBox11.Size = new System.Drawing.Size(78, 16);
+            this.checkBox11.TabIndex = 5;
+            this.checkBox11.Text = "Hex input?";
+            this.checkBox11.UseVisualStyleBackColor = true;
+            this.checkBox11.CheckedChanged += new System.EventHandler(this.checkBox11_CheckedChanged);
+            // 
+            // textBox12
+            // 
+            this.textBox12.Location = new System.Drawing.Point(8, 48);
+            this.textBox12.MaxLength = 8;
+            this.textBox12.Name = "textBox12";
+            this.textBox12.Size = new System.Drawing.Size(100, 19);
+            this.textBox12.TabIndex = 4;
+            this.textBox12.TextChanged += new System.EventHandler(this.textBox12_TextChanged);
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(6, 33);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(23, 12);
+            this.label29.TabIndex = 3;
+            this.label29.Text = "PID";
             // 
             // tabPage8
             // 
@@ -979,7 +1064,7 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = global::IVPIDGUI.Properties.Resources.IVgentify_preview_rev_1;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(-7, -10);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(104, 91);
@@ -1209,7 +1294,7 @@
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.Image = global::IVPIDGUI.Properties.Resources.IV_PID_GUInikoniko;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(103, -10);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(102, 75);
@@ -1236,7 +1321,7 @@
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(159, 20);
             this.button5.TabIndex = 39;
-            this.button5.Text = "PKM Patcher (Experimental)";
+            this.button5.Text = "PKM Patcher (Can\'t use)";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
@@ -1275,6 +1360,8 @@
             this.tabPage6.PerformLayout();
             this.tabPage7.ResumeLayout(false);
             this.tabPage7.PerformLayout();
+            this.tabPage9.ResumeLayout(false);
+            this.tabPage9.PerformLayout();
             this.tabPage8.ResumeLayout(false);
             this.tabPage8.PerformLayout();
             this.panel6.ResumeLayout(false);
@@ -1390,6 +1477,13 @@
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.CheckBox checkBox10;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.TabPage tabPage9;
+        private System.Windows.Forms.TextBox textBox13;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.CheckBox checkBox11;
+        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.Label label29;
     }
 }
 
