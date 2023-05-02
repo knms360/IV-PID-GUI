@@ -6,21 +6,23 @@ GUI software for IV-PID in C# (3rd gen how to fix "Encounter Type PID mismatch")
 3. Place iv-pid_modded_***.exe(3 file) in the same directory as IV-PID-GUI.exe
 4. Done
 ### 3rd gen how to fix "Encounter Type PID mismatch"
-This is not recommended for Regal Pokémon. Legal in PKHeX, but may not really be legal.
-1. Uncheck "Test GBA methods?"
-2. Enter IV
-3. Press "Generate"
+This is not recommended for Legal Pokémon. Legal in PKHeX, but may not really be legal.
+1. Press "IV --> PID"
+2. Uncheck "Test GBA methods?"
+3. Input IV
+4. Press "Generate"
 (If not, try changing the IV a bit. PKHeX Pokemon also changed)
-4. Copy the PID at the top of the table displayed below
-5. Paste to PID of PKHeX
-6. Change to Nature and Ability at the top of the table below
+5. Copy the PID at the top of the table displayed below
+6. Paste to PID of PKHeX
+7. Change to Nature and Ability at the top of the table below
 ### 3rd gen how to fix "Encounter Type PID mismatch" when pressing shiny buttons.
-1. 
-2. 
-3. 
-4. 
-5. 
-6. 
+First, it must be a legal Pokémon before pressing the shiny button. If it's not a legal Pokémon, follow the steps in "3rd gen how to fix "Encounter Type PID mismatch"".
+1. Press "PID + ID + SID --> Shiny SID"
+2. Input PID
+3. Input Trainer ID
+4. Input Secret ID
+5. Press "Generate"
+6. Paste Shiny SID to SID in PKHeX
 ### What is this?
 This is a GUI program of IV-PID.
 
