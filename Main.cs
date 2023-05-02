@@ -312,6 +312,7 @@ namespace WindowsFormsApp1
             label30.Text = shinysid;
             label13.Text = trainerid;
             label14.Text = secretid;
+            gene3.Text = generate;
             checkBox5.Text = hexinput;
             checkBox6.Text = hexinput;
             checkBox11.Text = hexinput;
@@ -594,6 +595,7 @@ namespace WindowsFormsApp1
             label30.Text = shinysid;
             label13.Text = trainerid;
             label14.Text = secretid;
+            gene3.Text = generate;
             checkBox5.Text = hexinput;
             checkBox6.Text = hexinput;
             checkBox11.Text = hexinput;
@@ -2163,7 +2165,7 @@ namespace WindowsFormsApp1
             {
                 StreamWriter inputdata = new System.IO.StreamWriter(inputfileName, false, System.Text.Encoding.GetEncoding("shift_jis"));
                 inputdata.WriteLine("7");
-                if (checkBox5.Checked == true)
+                if (checkBox6.Checked == true)
                 {
                     inputdata.WriteLine(Convert.ToInt64(textBox5.Text, 16));
                 }
@@ -2287,14 +2289,14 @@ namespace WindowsFormsApp1
                 if (checkBox11.Checked == true)
                 {
                     PID2 = new string('0', 8 - textBox12.Text.Length) + textBox12.Text;
-                    MessageBox.Show(PID2);
+                    //MessageBox.Show(PID2);
                     HID = PID2.Substring(0, 4);
                     LID = PID2.Substring(4, 4);
                 }
                 else
                 {
                     PID2 = new string('0', 8 - Convert.ToString(Convert.ToInt64(textBox12.Text), 16).Length) + Convert.ToString(Convert.ToInt64(textBox12.Text), 16);
-                    MessageBox.Show(PID2);
+                    //MessageBox.Show(PID2);
                     HID = PID2.Substring(0, 4);
                     LID = PID2.Substring(4, 4);
                 }
@@ -2308,10 +2310,10 @@ namespace WindowsFormsApp1
                 LID = new string('0', 16 - LID.Length) + LID;
                 TID = new string('0', 16 - TID.Length) + TID;
                 SID = new string('0', 16 - SID.Length) + SID;
-                MessageBox.Show(HID + "\n" + LID + "\n" + TID + "\n" + SID);
+                //MessageBox.Show(HID + "\n" + LID + "\n" + TID + "\n" + SID);
                 for (int i = 0; i < 13; i++)
                 {
-                    MessageBox.Show(HID.Substring(i, 1) + "\n" + LID.Substring(i, 1) + "\n" + TID.Substring(i, 1) + "\n" + SID.Substring(i, 1));
+                    //MessageBox.Show(HID.Substring(i, 1) + "\n" + LID.Substring(i, 1) + "\n" + TID.Substring(i, 1) + "\n" + SID.Substring(i, 1));
                     int plus = Convert.ToInt32(HID.Substring(i, 1)) + Convert.ToInt32(LID.Substring(i, 1)) + Convert.ToInt32(TID.Substring(i, 1));
                     if ( plus == 2 || plus == 0 )
                     {
@@ -2323,7 +2325,7 @@ namespace WindowsFormsApp1
                     }
                 }
                 NSID += SID.Substring(13, 3);
-                MessageBox.Show(HID + "\n" + LID + "\n" + TID + "\n" + NSID);
+                //MessageBox.Show(HID + "\n" + LID + "\n" + TID + "\n" + NSID);
                 textBox13.Text = new string('0', 5 - Convert.ToString(Convert.ToInt32(NSID, 2)).Length) + Convert.ToString(Convert.ToInt32(NSID, 2)).ToLower();
             }
             if (checkBox9.Checked == true)

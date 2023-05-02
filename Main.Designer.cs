@@ -79,7 +79,7 @@
             this.tabPage9 = new System.Windows.Forms.TabPage();
             this.textBox13 = new System.Windows.Forms.TextBox();
             this.label30 = new System.Windows.Forms.Label();
-            this.button6 = new System.Windows.Forms.Button();
+            this.gene3 = new System.Windows.Forms.Button();
             this.checkBox11 = new System.Windows.Forms.CheckBox();
             this.textBox12 = new System.Windows.Forms.TextBox();
             this.label29 = new System.Windows.Forms.Label();
@@ -727,7 +727,7 @@
             // 
             this.tabPage9.Controls.Add(this.textBox13);
             this.tabPage9.Controls.Add(this.label30);
-            this.tabPage9.Controls.Add(this.button6);
+            this.tabPage9.Controls.Add(this.gene3);
             this.tabPage9.Controls.Add(this.checkBox11);
             this.tabPage9.Controls.Add(this.textBox12);
             this.tabPage9.Controls.Add(this.label29);
@@ -757,15 +757,15 @@
             this.label30.TabIndex = 30;
             this.label30.Text = "Shiny SID";
             // 
-            // button6
+            // gene3
             // 
-            this.button6.Location = new System.Drawing.Point(620, 196);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 23);
-            this.button6.TabIndex = 29;
-            this.button6.Text = "生成";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.gene_Click);
+            this.gene3.Location = new System.Drawing.Point(620, 196);
+            this.gene3.Name = "gene3";
+            this.gene3.Size = new System.Drawing.Size(75, 23);
+            this.gene3.TabIndex = 29;
+            this.gene3.Text = "生成";
+            this.gene3.UseVisualStyleBackColor = true;
+            this.gene3.Click += new System.EventHandler(this.gene_Click);
             // 
             // checkBox11
             // 
@@ -1480,7 +1480,7 @@
         private System.Windows.Forms.TabPage tabPage9;
         private System.Windows.Forms.TextBox textBox13;
         private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button gene3;
         private System.Windows.Forms.CheckBox checkBox11;
         private System.Windows.Forms.TextBox textBox12;
         private System.Windows.Forms.Label label29;
