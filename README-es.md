@@ -1,7 +1,7 @@
 # IV-PID-GUI
 Software de interfaz gráfica de usuario para IV-PID en C# (3.ª generación sobre cómo corregir la "Encounter Type PID mismatch")
 
-[english](README-es.md)
+[english](README.md)
 
 [日本語](README-jp.md)
 ### Puesta en marcha
