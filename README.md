@@ -1,5 +1,9 @@
 # IV-PID-GUI
 GUI software for IV-PID in C# (3rd gen how to fix "Encounter Type PID mismatch")
+
+[español](README-es.md)
+
+[日本語](README-jp.md)
 ### Startup
 1. Get [IV-PID-GUI](https://github.com/knms360/IV-PID-GUI/releases/tag/v1.0.0)
 2. Get all [modified-for-IV-PID-GUI](https://github.com/knms360/modified-for-IV-PID-GUI/releases/tag/v0.1.1-modified)
