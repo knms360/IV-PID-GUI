@@ -1,5 +1,9 @@
 # IV-PID-GUI
 C#のIV-PID用のGUIソフトです。 (3世代の「エンカウントタイプと性格値が一致しません」を直す方法)
+
+[español](README-es.md)
+
+[english](README-es.md)
 ### 初期設定
 1. ダウンロード [IV-PID-GUI](https://github.com/knms360/IV-PID-GUI/releases/tag/v1.0.0)
 2. 全てダウンロード [modified-for-IV-PID-GUI](https://github.com/knms360/modified-for-IV-PID-GUI/releases/tag/v0.1.1-modified)
